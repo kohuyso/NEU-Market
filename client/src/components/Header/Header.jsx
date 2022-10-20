@@ -9,7 +9,6 @@ const Header = () => {
         <img src="" alt="" />
         <a href="">NITC</a>
       </div>
-      <div className="header_search"></div>
       <div className="header_option"></div>
     </header>
   );
