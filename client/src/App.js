@@ -8,6 +8,7 @@ import Product from "./components/Product/Product";
 import Profile from "./components/Profile/Profile";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <PrivateRoute exact path="/" component={Home} />
           {/* <Route exact path="/" component={Home} /> */}
+          <Route path="/search" component={Search} />
           <Route path="/product" component={Product} />
           <Route path="/cart" component={Cart} />
           <Route path="/profile" component={Profile} />

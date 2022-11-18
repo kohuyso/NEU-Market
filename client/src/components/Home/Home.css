@@ -76,3 +76,30 @@
 .home_discount_item_text {
   color: var(--main-color);
 }
+
+.home_hotdeals {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home_hotdeals_title {
+  text-align: center;
+  color: var(--main-color);
+}
+
+.home_hotdeals_title h3 {
+  font-size: 30px;
+}
+
+.home_hotdeals_book {
+  padding: 0 8%;
+  padding-bottom: 120px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
