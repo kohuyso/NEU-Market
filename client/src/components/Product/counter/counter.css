@@ -1,0 +1,58 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.buttonPlus,
+.buttonSub,
+.valueCounter {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: -0.5rem;
+  border: none;
+  color: #4d91d2;
+  font-weight: bold;
+}
+.buttonPlus {
+  border-radius: 36px 0px 0px 36px;
+  margin-left: 1rem;
+  border-right: 1.5px solid grey;
+  font-size: 1.2rem;
+  padding-top: 4px;
+  cursor: pointer;
+}
+
+.buttonSub {
+  border-radius: 0px 36px 36px 0px;
+  border-left: 1.5px solid grey;
+  font-size: 1.4rem;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.buttonSub:hover {
+  background-color: #e8e8e8;
+}
+.buttonPlus:hover {
+  background-color: #e8e8e8;
+}
+.buttonPlus:active {
+  box-shadow: 2px 2px 5px #4d91d2;
+  background-color: white;
+}
+.buttonSub:active {
+  background-color: white;
+  box-shadow: 2px 2px 5px #4d91d2;
+}
+
+.valueCounter {
+  width: 5.8rem;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  padding-left: 2.7rem;
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+  pointer-events: none;
+}

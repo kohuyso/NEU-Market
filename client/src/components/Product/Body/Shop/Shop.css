@@ -1,0 +1,34 @@
+.wrapper-shop {
+  margin-top: 2.5rem;
+  width: 100%;
+  height: 185px;
+  background-color: #81b0de;
+  display: flex;
+  flex-direction: row;
+  padding: 3.3rem 0;
+  font-weight: bold;
+}
+
+.shop-inter {
+  width: 29.5%;
+}
+
+.shop-infor {
+  padding-left: 1rem;
+  padding-top: 0.6rem;
+  border-left: 1px solid;
+  display: flex;
+  flex-direction: row;
+}
+.shop-infor-dt {
+  margin-left: 0.5rem;
+  padding-right: 6rem;
+}
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 739px) {
+  .shop-infor {
+    display: none;
+  }
+}

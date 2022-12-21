@@ -1,0 +1,55 @@
+.wrapper-MainProduct-MainInfor {
+  width: 58%;
+  height: 550px;
+  background-color: #81b0de;
+  padding-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  /* padding-left: 2rem; */
+  text-align: left;
+}
+
+.button-MainProduct-MainInfor {
+  border-radius: 36px 36px 36px 36px;
+  border: none;
+  color: #4d91d2;
+  margin-right: 2rem;
+  cursor: pointer;
+  height: 3rem;
+  padding: 0 15px;
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
+.button-MainProduct-MainInfor:hover {
+  background-color: #e8e8e8;
+}
+.button-MainProduct-MainInfor:active {
+  background-color: white;
+  box-shadow: 2px 2px 5px #4d91d2;
+}
+.MainInfor-setText {
+  color: white;
+  margin-bottom: 3.8rem;
+  text-align: left;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+  .wrapper-MainProduct-MainInfor {
+    width: 100%;
+    margin: 0;
+  }
+  .MainInfor-setText {
+    margin-bottom: 3rem;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .wrapper-MainProduct-MainInfor {
+    width: 100%;
+    margin: 0;
+  }
+  .MainInfor-setText {
+    margin-bottom: 4rem;
+  }
+}

@@ -1,0 +1,10 @@
+.Product-wrapper {
+  width: 100%;
+  height: 2000px;
+  background-color: #f9f9f9;
+}
+
+.Body-gr {
+  display: flex;
+  justify-content: center;
+}
