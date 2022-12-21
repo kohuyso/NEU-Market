@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import Header from "../Header/Header";
 
 export default function Login() {
   const emailRef = useRef();
@@ -29,7 +28,6 @@ export default function Login() {
 
   return (
     <div>
-      <Header />
       <form className="login-form" onSubmit={handleSubmit}>
         <span className="title">Login an account</span>
         {error && <div className="error-msg">{error}</div>}
