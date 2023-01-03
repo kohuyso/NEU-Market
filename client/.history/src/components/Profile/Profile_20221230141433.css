@@ -1,0 +1,8 @@
+.profile-container {
+    padding: 30px;
+}
+.profile-container .profile-title {
+    padding: 20px 0px;
+    font-size: 30px;
+    font-weight: 500;
+}

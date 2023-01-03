@@ -1,0 +1,23 @@
+.profile-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.profile-container .profile-title {
+    padding: 20px 0px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    width: 100%;
+}
+.profile-container .profile-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+} 
+.profile-container .profile-content .profile-details {
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 70vw;
+}

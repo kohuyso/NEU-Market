@@ -1,0 +1,11 @@
+.my-details-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #c5c5c5;
+}
+.my-details-container .my-details-title {
+    font-size: 20px;
+    font-weight: 700;
+}

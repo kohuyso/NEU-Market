@@ -1,0 +1,33 @@
+import React from 'react';
+import "./FieldInput.css";
+import { FormControl, InputLabel, OutlinedInput } from '@mui/material';
+
+export default function FieldInput(props) {
+
+  return (
+    <div className='field-input'>
+        <FormControl variant="outlined" sx={{width: 0.5}}>
+            <InputLabel>Field Name</InputLabel>
+            <OutlinedInput
+                label="Field Name"
+                sx={{borderRadius: "5px 0px 0px 5px", backgroundColor: "#dddddd"}}
+                onChange={(event) => {
+                    console.log("Chạy hàm này")
+                    props.onChangeFieldName(event, props.index);
+                }}
+            />
+        </FormControl>
+        <FormControl variant="outlined" sx={{width: 0.5}}>
+            <InputLabel>Field Value</InputLabel>
+            <OutlinedInput
+                label="Field Value"
+                sx={{borderRadius: "0px 5px 5px 0px"}}
+                // onChange={(event) => {
+                //     dispatch(setFieldValue([props.index, event.target.value]));
+                // }}
+            />
+        </FormControl>
+
+    </div>
+  )
+}
