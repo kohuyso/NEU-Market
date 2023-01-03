@@ -5,15 +5,13 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
-import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import EditProduct from "./components/editProduct/EditProduct";
-import Search from "./components/Search/Search";
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
+      <Provider store={store}>
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
@@ -22,8 +20,9 @@ function App() {
           <Route path="/product" component={EditProduct} />
           <Route path="/cart" component={Cart} />
           <Route path="/profile" component={Profile} />
+          <Route path="/shop" component={ShopP} />
         </Switch>
-      </AuthProvider>
+      </Provider>
     </div>
   );
 }

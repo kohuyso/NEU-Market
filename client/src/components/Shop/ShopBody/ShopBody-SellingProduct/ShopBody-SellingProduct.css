@@ -1,0 +1,20 @@
+.wrapper-SellingProduct {
+  font-size: 45px;
+  color: #4d91d2;
+}
+
+.SellingProduct-amount {
+  font-size: 12px;
+  color: #4d91d2;
+  text-align: left;
+  margin-top: 8rem;
+  color: #6f6f6f;
+}
+
+.SellingProduct-listProduct {
+  margin-top: 5px;
+  padding: 1rem;
+  height: 600px;
+  border-top: 3px solid #4d91d2;
+  background-color: white;
+}

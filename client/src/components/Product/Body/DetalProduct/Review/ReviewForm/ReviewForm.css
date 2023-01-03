@@ -1,0 +1,76 @@
+.wrapper-ReviewForm,
+.e-wrapper-ReviewForm {
+  display: none;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  box-sizing: border-box;
+  width: 90%;
+  background: #fff;
+  padding: 15px 30px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+  text-align: left;
+  max-width: 700px;
+  padding: 24px 33px 29px;
+  background: #fff;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+  margin-left: 20%;
+  position: fixed;
+  left: 2%;
+  top: 3.6%;
+  z-index: 30;
+}
+
+.ReviewForm-Header,
+.ReviewForm-ProductName {
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0 0 10px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: black;
+}
+.ReviewForm-ProductName {
+  font-weight: 700;
+}
+.ReviewForm-RattingStar {
+  display: flex;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+#ReviewForm-Author {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #c4cdd5;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 13px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.ReviewForm-closeIcon {
+  position: absolute;
+  left: 93.6%;
+  top: 4.5%;
+  cursor: pointer;
+}
+
+.e-wrapper-ReviewForm {
+  display: inline-block;
+}

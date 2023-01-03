@@ -160,5 +160,5 @@ export default function Product() {
         JSON.stringify(product)
       }
     </div>
-  )
+  );
 }
