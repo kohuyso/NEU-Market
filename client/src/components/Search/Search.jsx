@@ -1,4 +1,4 @@
-import { Box, Button, Pagination, Slider } from "@mui/material";
+import { Button, Pagination, Slider } from "@mui/material";
 import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";

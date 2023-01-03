@@ -1,4 +1,3 @@
-import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -394,7 +393,7 @@ export default function Home() {
           </Tabs>
 
           <div className="home_hotdeals_book">
-            {value == 1 &&
+            {value === 1 &&
               items.map(({ id, img, title, author, rate, price }) => (
                 <Item
                   key={id}
