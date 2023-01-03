@@ -6,12 +6,11 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
-import { AuthProvider } from "./contexts/AuthContext";
+import { AuthProvider } from "../contexts/AuthContext";
 import EditProduct from "./components/editProduct/EditProduct";
 import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/Search/Search";
-import SignupDetails from "./components/SingupDetails/SignupDetails";
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
             <Route path="/product" component={EditProduct} />
             <Route path="/cart" component={Cart} />
             <Route path="/profile" component={Profile} />
-            <Route path="/details" component={SignupDetails} />
           </Switch>
         </Provider>
       </AuthProvider>

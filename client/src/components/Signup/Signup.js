@@ -50,7 +50,7 @@ export default function Signup() {
             <span>Password Confirmation</span>
             <input ref={passwordConfirmRef} type="password" placeholder='Re-enter your password'></input>
         </div>
-        <button disabled={loading} type='submit'>Sign Up</button>
+        <button disabled={loading} type='submit'> <a href="/signup/details">Sign Up</a> </button>
         <div className='login-wrapper'>
           Already have an account? <a href="/login">Log In</a>
         </div>

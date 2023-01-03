@@ -11,7 +11,6 @@ import EditProduct from "./components/editProduct/EditProduct";
 import { Provider } from "react-redux";
 import store from "./store";
 import Search from "./components/Search/Search";
-import SignupDetails from "./components/SingupDetails/SignupDetails";
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
             <Route path="/product" component={EditProduct} />
             <Route path="/cart" component={Cart} />
             <Route path="/profile" component={Profile} />
-            <Route path="/details" component={SignupDetails} />
           </Switch>
         </Provider>
       </AuthProvider>

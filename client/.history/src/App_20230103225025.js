@@ -26,7 +26,7 @@ function App() {
             <Route path="/product" component={EditProduct} />
             <Route path="/cart" component={Cart} />
             <Route path="/profile" component={Profile} />
-            <Route path="/details" component={SignupDetails} />
+            <Route path="/signup/details" component={SignupDetails} />
           </Switch>
         </Provider>
       </AuthProvider>
