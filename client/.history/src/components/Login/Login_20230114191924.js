@@ -91,7 +91,7 @@ export default function Login() {
               style={{
                 textTransform: "none",
                 fontSize: 15,
-                borderRadius: "20px",
+                borderRadius: "15px",
               }}
               type="submit"
             >

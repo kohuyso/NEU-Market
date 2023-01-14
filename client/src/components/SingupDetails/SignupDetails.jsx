@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import "./SignupDetails.css";
 
 export default function SignupDetails() {
   return (
-    <div>
+    <div className='signup-details'>
       Signup Details
     </div>
   )
