@@ -13,9 +13,6 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function MyDetails() {
-
-  const [value, setValue] = React.useState(0);
-
   return (
     <div className="my-details-container">
       <div className="my-details-title">My details</div>
@@ -114,10 +111,6 @@ export default function MyDetails() {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="Date of Birth"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
                   renderInput={(params) => (
                     <TextField sx={{ width: 1 }} {...params} />
                   )}

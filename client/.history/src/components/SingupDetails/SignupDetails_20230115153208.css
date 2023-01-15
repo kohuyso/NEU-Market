@@ -7,8 +7,7 @@
 .signup-details .signup-details-form {
     max-width: 28rem;
     width: 100%;
-    margin: 1rem auto;
-    padding: 1.5rem 2rem;
+    padding: 2rem;
     border: none;
     outline: none;
     border-radius: 0.25rem;
@@ -18,9 +17,12 @@
 .signup-details .signup-details-form .title {
     font-size: 20px;
     font-weight: 500;
-    line-height: 40px;
+    line-height: 48px;
 }
 .signup-details .signup-details-form .group {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }

@@ -115,9 +115,6 @@ export default function MyDetails() {
                 <DatePicker
                   label="Date of Birth"
                   value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
                   renderInput={(params) => (
                     <TextField sx={{ width: 1 }} {...params} />
                   )}

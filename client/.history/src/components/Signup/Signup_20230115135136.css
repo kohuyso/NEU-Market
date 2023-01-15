@@ -2,14 +2,14 @@
     display: none;
 } */
 
-.login-container {
+.signup-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-container .login-form {
+.signup-container .signup-form {
     max-width: 28rem;
     width: 100%;
     margin: 2rem auto;
@@ -21,18 +21,18 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.login-container .login-form .title {
+.signup-container .signup-form .title {
     font-size: 20px;
     font-weight: 500;
     line-height: 48px;
 }
 
-.login-container .login-form .signup-wrapper {
+.signup-container .signup-form .login-wrapper {
     font-size: 16px;
     padding-bottom: 24px;
 }
 
-.login-container .login-form .group {
+.signup-container .signup-form .group {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,14 +40,14 @@
     width: 100%;
 }
 
-.login-container .login-form .method {
+.signup-container .signup-form .method {
     margin-top: 10px;
 }
-.login-container .login-form .method-control {
+.signup-container .signup-form .method-control {
     margin-bottom: 1rem;
 }
 
-.login-container .login-form .method-action {
+.signup-container .signup-form .method-action {
     font-size: 0.95rem;
     font-weight: 500;
     display: flex;
@@ -65,18 +65,18 @@
     text-rendering: optimizeLegibility;
     transition: all 0.35s ease;
 }
-.login-container .login-form .method-action:hover {
+.signup-container .signup-form .method-action:hover {
     background-color: #f1f5f9;
 }
 
-.login-container .login-form .striped {
+.signup-container .signup-form .striped {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 1rem 0;
 }
-.login-container .login-form .striped .striped-line {
+.signup-container .signup-form .striped .striped-line {
     flex: auto;
     flex-basis: auto;
     border: none;
@@ -84,7 +84,7 @@
     height: 2px;
     background: #dadce0;
 }
-.login-container .login-form .striped .striped-text {
+.signup-container .signup-form .striped .striped-text {
     font-family: inherit;
     font-size: 1rem;
     font-weight: 500;

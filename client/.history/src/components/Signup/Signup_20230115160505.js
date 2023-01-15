@@ -44,7 +44,7 @@ export default function Signup() {
 
   return (
     <div className="signup-container">
-      <Stepper sx={{width: 0.4, mt: 10}} alternativeLabel>
+      <Stepper sx={{width: 0.4, mt: 1}} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>

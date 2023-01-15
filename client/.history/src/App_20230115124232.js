@@ -5,7 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
-import SignupDetails from "./components/SingupDetails/SignupDetails";
+import SignupDetails from "./components/SignupDetails/SignupDetails";
 import PrivateRoute from "./PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import EditProduct from "./components/editProduct/EditProduct";

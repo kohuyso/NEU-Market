@@ -17,8 +17,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function SignupDetails() {
-  const [value, setValue] = React.useState(0);
-
+  
   const steps = [
     'Account Information',
     'Personal Information',
@@ -28,7 +27,7 @@ export default function SignupDetails() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    history.push("/");
+    history.push("/")
   }
 
   return (
@@ -40,7 +39,7 @@ export default function SignupDetails() {
           </Step>
         ))}
       </Stepper>
-      <form className="signup-details-form" onSubmit={handleSubmit}>
+      <form className="signup-details-form">
         <span className="title">Personal Information</span>
         <div className="username">
           <TextField sx={{width: 1, mb: 2, mt: 1}} label="Username" variant="outlined" />
@@ -59,10 +58,6 @@ export default function SignupDetails() {
         <div className="dateofbirth">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
               label="Date of Birth"
               renderInput={(params) => (
                 <TextField sx={{width: 1, mb: 1}} {...params} />

@@ -1,6 +1,5 @@
 import React from "react";
 import "./SignupDetails.css";
-import { useHistory } from "react-router-dom";
 import {
   TextField,
   Radio,
@@ -8,50 +7,32 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
-  Button,
-  Step,
-  Stepper,
-  StepLabel
 } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function SignupDetails() {
-  const [value, setValue] = React.useState(0);
-
-  const steps = [
-    'Account Information',
-    'Personal Information',
-  ];
-
-  const history = useHistory();
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    history.push("/");
-  }
-
   return (
     <div className="signup-details">
-      <Stepper sx={{width: 0.4, mt: 5}} activeStep={1} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-      <form className="signup-details-form" onSubmit={handleSubmit}>
+      <form className="signup-details-form">
         <span className="title">Personal Information</span>
         <div className="username">
-          <TextField sx={{width: 1, mb: 2, mt: 1}} label="Username" variant="outlined" />
+          <TextField sx={{width: 1, mb: 3, mt: 1}} label="Username" variant="outlined" />
         </div>
         <div className="group">
-          <TextField sx={{width: 0.5, mb: 2, mr: 2}} label="First name" variant="outlined" />
-          <TextField sx={{width: 0.5, mb: 2}} label="Last name" variant="outlined" />
+          <TextField sx={{width: 0.5, mb: 3, mr: 2}} label="First name" variant="outlined" />
+          <TextField sx={{width: 0.5, mb: 3}} label="Last name" variant="outlined" />
+        </div>
+        <div className="email">
+          <TextField
+            sx={{width: 1, mb: 3}}
+            label="Email address"
+            variant="outlined"
+          />
         </div>
         <div className="tel">
           <TextField
-            sx={{width: 1, mb: 2}}
+            sx={{width: 1, mb: 3}}
             label="Tel Number"
             variant="outlined"
           />
@@ -59,19 +40,15 @@ export default function SignupDetails() {
         <div className="dateofbirth">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
               label="Date of Birth"
               renderInput={(params) => (
-                <TextField sx={{width: 1, mb: 1}} {...params} />
+                <TextField sx={{width: 1, mb: 3}} {...params} />
               )}
             />
           </LocalizationProvider>
         </div>
         <div className="gender">
-          <FormControl sx={{ mt: 1.5, width: 1, mb: 2 }}>
+          <FormControl sx={{ mt: 1.5, width: 1 }}>
             <FormLabel id="demo-row-radio-buttons-group-label">
               Gender
             </FormLabel>
@@ -98,18 +75,6 @@ export default function SignupDetails() {
             </RadioGroup>
           </FormControl>
         </div>
-        <Button
-          sx={{ width: 1, mt: 1 }}
-          variant="contained"
-          style={{
-            textTransform: "none",
-            fontSize: 15,
-            borderRadius: "20px",
-          }}
-          type="submit"
-        >
-          You're all set
-        </Button>
       </form>
     </div>
   );
