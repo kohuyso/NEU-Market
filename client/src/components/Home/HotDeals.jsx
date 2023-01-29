@@ -75,6 +75,7 @@ const HotDeals = () => {
           items.map(({ id, img, title, author, rate, price }) => (
             <Item
               key={id}
+              id={id}
               img={img}
               title={title}
               author={author}

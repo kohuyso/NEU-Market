@@ -3,11 +3,28 @@ import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import "./Item.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducers/cartSlice";
 
 const Item = ({ id, img, title, author, rate, price }) => {
   const rateStarFilled = Array.from({ length: rate });
   const numberStarOutlined = Math.ceil(5 - rate);
   const rateStarOutlined = Array.from({ length: numberStarOutlined });
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id,
+        title,
+        author,
+        rate,
+        price,
+        quantity: 1,
+      })
+    );
+  };
 
   return (
     <div className="item">
@@ -28,7 +45,9 @@ const Item = ({ id, img, title, author, rate, price }) => {
         <p className="item_price">{price}đ</p>
       </div>
       <div className="item_add">
-        <Button variant="outlined">+ Thêm vào giỏ hàng</Button>
+        <Button variant="outlined" onClick={handleAddToCart}>
+          + Thêm vào giỏ hàng
+        </Button>
       </div>
     </div>
   );

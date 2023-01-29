@@ -18,6 +18,8 @@ import Footer from "../Footer/Footer";
 
 import HotDeals from "./HotDeals";
 import Discount from "./Discount";
+import { selectCart, selectTotalCart } from "../../redux/reducers/cartSlice";
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
@@ -25,6 +27,8 @@ export default function Home() {
     setOpen(!open);
   };
 
+  const list = useSelector(selectCart);
+  const total = useSelector(selectTotalCart);
   var settings = {
     dots: true,
     arrows: false,
@@ -127,6 +131,11 @@ export default function Home() {
             </Slider>
           </div>
         </div>
+
+        {list.map((item) => (
+          <p>{item.quantity}</p>
+        ))}
+        <h1>{total}</h1>
         <Discount />
         <HotDeals />
       </div>
