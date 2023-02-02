@@ -36,3 +36,13 @@
   width: 100%;
   padding-bottom: 5%;
 }
+
+.item_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item_img img {
+  width: 60%;
+}
