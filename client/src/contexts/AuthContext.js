@@ -31,6 +31,10 @@ export function AuthProvider({ children }) {
     return currentUser.updateEmail(email);
   }
 
+  function reauthenticateWithCredential(user, credential) {
+    return currentUser.reauthenticateWithCredential(user, credential);
+  }
+
   function updatePassword(password) {
     return currentUser.updatePassword(password);
   }
@@ -52,6 +56,7 @@ export function AuthProvider({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    reauthenticateWithCredential
   };
 
   return (

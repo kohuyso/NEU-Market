@@ -10,7 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import EditProduct from "./components/editProduct/EditProduct";
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./redux/store";
 import Search from "./components/Search/Search";
 
 function App() {

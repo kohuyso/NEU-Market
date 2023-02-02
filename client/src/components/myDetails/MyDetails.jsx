@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./MyDetails.css";
 import {
   Button,
@@ -8,81 +8,121 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 import { TextField } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { addUser } from "../../redux/reducers/userSlice";
+import dayjs from "dayjs";
+import { useAuth } from "../../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
 
 export default function MyDetails() {
 
-  const [value, setValue] = React.useState(0);
+  const { user } = useSelector((state) => state.user);
+  const [ newUser, setNewUser ] = useState(user);
+  const dispatch = useDispatch();
+  const [day, setDay] = useState(newUser.dateOfBirth);
+  const { updatePassword } = useAuth();
+  const oldPassRef = useRef();
+  const newPassRef = useRef();
+  const confirmPassRef = useRef();
+  const history = useHistory();
+
+  const changeGeneralInfo = () => {
+    dispatch(addUser(newUser));
+    updatePassword(newPassRef.current.value).then(() => {
+      console.log("Done");
+      history.push("/login");
+    }).catch((err) => {
+
+    });
+  }
 
   return (
     <div className="my-details-container">
-      <div className="my-details-title">My details</div>
+      <div className="my-details-title">Thông tin chi tiết</div>
       <div className="my-details-content">
         <div className="my-details-general">
-          <div className="my-details-general-title">General Informations</div>
+          <div className="my-details-general-title">Thông tin chung</div>
           <div className="my-details-general-content">
             <div className="left">
               <p>
-                We recommend that you periodically update your password to help
-                prevent unauthorized access to your account.
+                Chúng tôi đề xuất bạn cập nhật mật khẩu định kỳ để ngăn chặn truy cập không xác thực vào tài khoản của bạn.
               </p>
             </div>
             <div className="right">
               <TextField
                 sx={{ mb: 4, width: 1 }}
-                label="Username"
+                label="Tên đăng nhập"
                 variant="outlined"
+                value={newUser.username}
+                onChange={(event) => {
+                  event.preventDefault();
+                  setNewUser({
+                    ...newUser,
+                    username: event.target.value
+                  })
+                }}
               />
-              <p>Change Password</p>
+              <p>Thay đổi mật khẩu</p>
               <TextField
                 sx={{ mb: 2, width: 1 }}
-                label="Current Password"
+                label="Mật khẩu hiện tại"
                 variant="outlined"
-                type="password"
+                type="text"
+                ref={oldPassRef}
               />
               <TextField
                 sx={{ mb: 2, width: 1 }}
-                label="New Password"
+                label="Mật khẩu mới"
                 variant="outlined"
-                type="password"
+                type="text"
+                ref={newPassRef}
               />
               <TextField
                 sx={{ mb: 2, width: 1 }}
-                label="Confirm Password"
+                label="Xác nhận mật khẩu mới"
                 variant="outlined"
-                type="password"
+                type="text"
+                ref={confirmPassRef}
               />
               <Button
                 variant="contained"
                 sx={{mt: 2, width: 0.5}}
                 style={{ textTransform: "none", fontSize: 15 }}
+                onClick={changeGeneralInfo}
               >
-                Save changes
+                Lưu thay đổi
               </Button>
             </div>
           </div>
         </div>
         <div className="my-details-general">
-          <div className="my-details-general-title">Detail Informations</div>
+          <div className="my-details-general-title">Thông tin chi tiết</div>
           <div className="my-details-general-content">
             <div className="left">
               <p>
-                This information is private and will not be shared with other
-                users. Read the{" "}
-                <a href="https://www.facebook.com/">
-                  NEU Market Privacy Notice
+                Những thông tin này được bảo mật và sẽ không được chia sẻ với người dùng khác. Mời bạn đọc
+                {" "}<a href="https://www.facebook.com/">
+                   Thông cáo về quyền Riêng tư của NEU Market
                 </a>{" "}
-                anytime!
+                bất cứ khi nào!
               </p>
               <div className="avatar">
                 <img
                   src="https://i.pinimg.com/736x/fa/60/51/fa6051d72b821cb48a8cc71d3481dfef--social-networks-avatar.jpg"
                   alt="avatar"
                 />
-                <Button variant="contained" component="label">
-                  Upload
+                <Button
+                  style={{
+                    textTransform: "none",
+                    fontSize: 15,
+                  }}
+                  variant="contained" 
+                  component="label"
+                >
+                  Tải lên
                   <input hidden accept="image/*" multiple type="file" />
                 </Button>
               </div>
@@ -91,32 +131,69 @@ export default function MyDetails() {
               <div className="group">
                 <TextField
                   sx={{ width: 0.5, mr: 2 }}
-                  label="First name"
+                  label="Họ"
                   variant="outlined"
+                  value={newUser.firstName}
+                  onChange={(event) => {
+                    event.preventDefault();
+                    setNewUser({
+                      ...newUser,
+                      firstName: event.target.value
+                    })
+                  }}
                 />
                 <TextField
                   sx={{ width: 0.5 }}
-                  label="Last name"
+                  label="Tên"
                   variant="outlined"
+                  value={newUser.lastName}
+                  onChange={(event) => {
+                    event.preventDefault();
+                    setNewUser({
+                      ...newUser,
+                      lastName: event.target.value
+                    })
+                  }}
                 />
               </div>
 
               <TextField
                 sx={{ mb: 2, width: 1 }}
-                label="Email address"
+                label="Địa chỉ email"
                 variant="outlined"
+                value={newUser.email}
+                onChange={(event) => {
+                  event.preventDefault();
+                  setNewUser({
+                    ...newUser,
+                    email: event.target.value
+                  })
+                }}
               />
               <TextField
                 sx={{ mb: 2, width: 1 }}
-                label="Tel Number"
+                label="Số điện thoại"
                 variant="outlined"
+                value={newUser.phoneNumber}
+                onChange={(event) => {
+                  event.preventDefault();
+                  setNewUser({
+                    ...newUser,
+                    phoneNumber: event.target.value
+                  })
+                }}
               />
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                  label="Date of Birth"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
+                  label="Ngày sinh"
+                  value={day}
+                  inputFormat="DD/MM/YYYY"
+                  onChange={(newDay) => {
+                    setDay(newDay);
+                    setNewUser({
+                      ...newUser,
+                      dateOfBirth: dayjs(newDay).format("DD/MM/YYYY")
+                    })
                   }}
                   renderInput={(params) => (
                     <TextField sx={{ width: 1 }} {...params} />
@@ -125,27 +202,35 @@ export default function MyDetails() {
               </LocalizationProvider>
               <FormControl sx={{ mt: 1.5, width: 1 }}>
                 <FormLabel id="demo-row-radio-buttons-group-label">
-                  Gender
+                  Giới tính
                 </FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="row-radio-buttons-group"
+                  value={newUser.gender}
+                  onChange={(event) => {
+                    event.preventDefault();
+                    setNewUser({
+                      ...newUser,
+                      gender: event.target.value
+                    })
+                  }}
                 >
                   <FormControlLabel
                     value="male"
                     control={<Radio />}
-                    label="Male"
+                    label="Nam"
                   />
                   <FormControlLabel
                     value="female"
                     control={<Radio />}
-                    label="Female"
+                    label="Nữ"
                   />
                   <FormControlLabel
                     value="other"
                     control={<Radio />}
-                    label="Other"
+                    label="Khác"
                   />
                 </RadioGroup>
               </FormControl>
@@ -153,23 +238,26 @@ export default function MyDetails() {
                 variant="contained"
                 sx={{mt: 2, width: 0.5}}
                 style={{ textTransform: "none", fontSize: 15 }}
+                onClick={() => {
+                  dispatch(addUser(newUser));
+                }}
               >
-                Save and verify
+                Xác nhận và lưu
               </Button>
             </div>
           </div>
         </div>
         <div className="my-details-general">
-          <div className="my-details-general-title">Connected Accounts</div>
+          <div className="my-details-general-title">Kết nối tài khoản</div>
           <div className="my-details-general-content">
             <div className="left">
               <p>
-                If connected, these accounts can access some of the data that
-                you provide to NEU Market.
+                Nếu kết nối, những tài khoản sau có thể truy cập dữ liệu bạn 
+                đã cung cấp cho NEU Market.
               </p>
             </div>
             <div className="right">
-              <p>Connected</p>
+              <p>Kết nối</p>
               <div className="connect"></div>
               <div className="connect">
                 <div className="group">

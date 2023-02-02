@@ -10,6 +10,7 @@ import {
   Facebook,
 } from "@mui/icons-material";
 
+
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -41,28 +42,28 @@ export default function Login() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <span className="title">Login an account</span>
+        <span className="title">Đăng nhập</span>
         <div className="signup-wrapper">
-          Need an account? <a href="/signup">Create an account</a>
+          Chưa có tài khoản? <a href="/signup">Đăng ký ngay</a>
         </div>
         {error && <div className="error-msg">{error}</div>}
         <div className="email">
           <TextField
             inputRef={emailRef}
             sx={{ width: 1, mb: 3, backgroundColor: "#F1F5F9" }}
-            placeholder="Enter your email"
-            label="Email Address"
+            placeholder="Nhập địa chỉ email"
+            label="Địa chỉ email"
             type="email"
             variant="outlined"
           />
         </div>
         <div className="password">
           <TextField
-            label="Password"
+            label="Mật khẩu"
             variant="outlined"
             sx={{ width: 1, mb: 3, backgroundColor: "#F1F5F9" }}
             inputRef={passwordRef}
-            placeholder="Enter your password"
+            placeholder="Nhập mật khẩu"
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
@@ -81,7 +82,7 @@ export default function Login() {
         </div>
         <div className="group">
           <div className="child" style={{ width: "70%" }}>
-            <a href="/forgot-password">Forgot Password</a>
+            <a href="/forgot-password">Quên mật khẩu?</a>
           </div>
           <div className="child" style={{ width: "30%" }}>
             <Button
@@ -95,7 +96,7 @@ export default function Login() {
               }}
               type="submit"
             >
-              Log In
+              Đăng nhập
             </Button>
           </div>
         </div>
@@ -108,13 +109,13 @@ export default function Login() {
           <div class="method-control">
             <a href="/" class="method-action">
               <Google sx={{ mr: 1 }} />
-              <span>Sign in with Google</span>
+              <span>Đăng nhập với Google</span>
             </a>
           </div>
           <div class="method-control">
             <a href="/" class="method-action">
               <Facebook sx={{ mr: 1 }} />
-              <span>Sign in with Facebook</span>
+              <span>Đăng nhập với Facebook</span>
             </a>
           </div>
         </div>

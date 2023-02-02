@@ -7,6 +7,33 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     border-radius: 10px;
 }
+.my-address-container .group {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.address-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.address-form .title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.address-form .group-textfield {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.address-form .group-buttons {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 .my-address-container .my-address-title {
     font-size: 20px;
     font-weight: 700;
@@ -24,4 +51,40 @@
     padding: 10px 0px;
     border-bottom: 1px solid #c5c5c5;    
     width: 100%;
+}
+.my-address-container .my-address-content .content-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.my-address-container .my-address-content .content-list .content-item {
+    padding: 20px 0px;
+    border-bottom: 1px solid #c5c5c5;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.my-address-container .my-address-content .content-list .content-item .left-content-item {
+    display: flex;
+    flex-direction: column;
+}
+.my-address-container .my-address-content .content-list .content-item .item-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.my-address-container .my-address-content .content-list .content-item .item-group .name {
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 8px;
+    border-right: 1px solid #757575;
+}
+.my-address-container .my-address-content .content-list .content-item .item-group .phoneNumber {
+    font-size: 14px;
+    padding-left: 8px;
+    color: #0000008A;
+}
+.my-address-container .my-address-content .content-list .content-item .address {
+    font-size: 14px;
+    color: #0000008A;
 }

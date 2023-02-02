@@ -23,7 +23,7 @@ export default function Signup() {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Password do not match");
+      return setError("Mật khẩu bạn nhập không trùng khớp");
     }
 
     try {
@@ -38,8 +38,8 @@ export default function Signup() {
   }
 
   const steps = [
-    'Account Information',
-    'Personal Information',
+    'Thông tin tài khoản',
+    'Thông tin cá nhân',
   ];
 
   return (
@@ -52,28 +52,28 @@ export default function Signup() {
         ))}
       </Stepper>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <span className="title">Create an account</span>
+        <span className="title">Tạo tài khoản</span>
         <div className="login-wrapper">
-          Already have an account? <a href="/login">Log In</a>
+          Đã có tài khoản? <a href="/login">Đăng nhập</a>
         </div>
         {error && <div className="error-msg">{error}</div>}
         <div className="email">
           <TextField
             inputRef={emailRef}
             sx={{ width: 1, mb: 3, backgroundColor: "#F1F5F9" }}
-            placeholder="Enter your email"
-            label="Email Address"
+            placeholder="Nhập email của bạn"
+            label="Địa chỉ email"
             type="email"
             variant="outlined"
           />
         </div>
         <div className="password">
           <TextField
-            label="Password"
+            label="Mật khẩu"
             variant="outlined"
             sx={{ width: 1, mb: 3, backgroundColor: "#F1F5F9" }}
             inputRef={passwordRef}
-            placeholder="Enter your password"
+            placeholder="Nhập mật khẩu của bạn"
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
@@ -92,11 +92,11 @@ export default function Signup() {
         </div>
         <div className="password-confirm">
           <TextField
-            label="Password Confirmation"
+            label="Xác nhận mật khẩu"
             variant="outlined"
             sx={{ width: 1, mb: 3, backgroundColor: "#F1F5F9" }}
             inputRef={passwordConfirmRef}
-            placeholder="Re-enter your password"
+            placeholder="Nhập lại mật khẩu của bạn"
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
@@ -125,7 +125,7 @@ export default function Signup() {
           }}
           type="submit"
         >
-          Sign Up
+          Đăng ký
         </Button>
       </form>
     </div>
