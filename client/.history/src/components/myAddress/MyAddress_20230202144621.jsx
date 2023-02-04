@@ -1,12 +1,11 @@
 import React from "react";
 import "./MyAddress.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Modal, Box, TextField, FormControlLabel, Checkbox, FormGroup, IconButton } from "@mui/material";
+import { Button, Modal, Box, TextField, FormControlLabel, Checkbox, FormGroup } from "@mui/material";
 import { addAddress  } from "../../redux/reducers/userSlice";
 import axios from "axios";
 import CountryTextField from "../countryTextField/CountryTextField";
-import { Delete } from "@mui/icons-material";
-import EditAddress from "../../editAddress/EditAddress";
+import { Delete, Edit } from "@mui/icons-material";
 
 const style = {
   position: 'absolute',
@@ -215,15 +214,8 @@ export default function MyAddress() {
                   <div className="address">{value.ward}, {value.district}, {value.city}</div>
                 </div>
                 <div className="right-content-item">
-                  {/* <IconButton onClick={() => (
-                    open ? <EditAddress value={value}></EditAddress> : ""
-                  )}>
-                    <Edit></Edit>
-                  </IconButton> */}
-                  <EditAddress value={value}></EditAddress>
-                  <IconButton sx={{ml: 1}}>
-                    <Delete></Delete>
-                  </IconButton>
+                  <Edit></Edit>
+                  <Delete></Delete>
                 </div>
               </div>
             ))

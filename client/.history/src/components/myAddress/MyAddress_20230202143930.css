@@ -64,10 +64,6 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.my-address-container .my-address-content .content-list .content-item .right-content-item {
-    display: flex;
-    flex-direction: row;
-}
 .my-address-container .my-address-content .content-list .content-item .left-content-item {
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@ import { Button, Modal, Box, TextField, FormControlLabel, Checkbox, FormGroup, I
 import { addAddress  } from "../../redux/reducers/userSlice";
 import axios from "axios";
 import CountryTextField from "../countryTextField/CountryTextField";
-import { Delete } from "@mui/icons-material";
+import { Delete, Edit } from "@mui/icons-material";
 import EditAddress from "../../editAddress/EditAddress";
 
 const style = {

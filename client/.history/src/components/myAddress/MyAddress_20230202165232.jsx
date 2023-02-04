@@ -5,8 +5,7 @@ import { Button, Modal, Box, TextField, FormControlLabel, Checkbox, FormGroup, I
 import { addAddress  } from "../../redux/reducers/userSlice";
 import axios from "axios";
 import CountryTextField from "../countryTextField/CountryTextField";
-import { Delete } from "@mui/icons-material";
-import EditAddress from "../../editAddress/EditAddress";
+import { Delete, Edit } from "@mui/icons-material";
 
 const style = {
   position: 'absolute',
@@ -31,11 +30,11 @@ export default function MyAddress() {
   });
   const { user } = useSelector(state => state.user);
   const [cities, setCities] = React.useState([]);
-  const [city, setCity] = React.useState('Thành phố Hà Nội');
+  const [city, setCity] = React.useState(newAddress.city);
   const [districts, setDistricts] = React.useState([]);
-  const [district, setDistrict] = React.useState('Quận Ba Đình');
+  const [district, setDistrict] = React.useState(newAddress.district);
 	const [wards, setWards] = React.useState([]);
-  const [ward, setWard] = React.useState('Phường Phúc Xá');
+  const [ward, setWard] = React.useState(newAddress.ward);
 
   const fetchCities = async () => {
     const { data } = await axios.get("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json");
@@ -119,6 +118,7 @@ export default function MyAddress() {
                 <TextField 
                   sx={{ mb: 2, width: 0.5, mr: 2 }}
                   label="Họ và tên"
+                  value={newAddress.name}
                   variant="outlined"
                   onChange={(event) => {
                     event.preventDefault();
@@ -128,6 +128,7 @@ export default function MyAddress() {
                 <TextField 
                   sx={{ mb: 2, width: 0.5 }}
                   label="Số điện thoại"
+                  value={newAddress.phoneNumber}
                   variant="outlined"
                   onChange={(event) => {
                     event.preventDefault();
@@ -154,6 +155,7 @@ export default function MyAddress() {
                 sx={{ mb: 2, width: 1 }}
                 variant="outlined"
                 label="Địa chỉ cụ thể"
+                value={newAddress.detailAddress}
                 placeholder="Điền số nhà, ngõ, ..."
                 multiline={true}
                 onChange={(event) => {
@@ -166,6 +168,7 @@ export default function MyAddress() {
                   label="Đặt làm địa chỉ mặc định" 
                   control={
                     <Checkbox 
+                      value={newAddress.default}
                       onChange={(event) => {
                         event.preventDefault();
                         setNewAddress({...newAddress, default: event.target.checked})
@@ -215,12 +218,11 @@ export default function MyAddress() {
                   <div className="address">{value.ward}, {value.district}, {value.city}</div>
                 </div>
                 <div className="right-content-item">
-                  {/* <IconButton onClick={() => (
-                    open ? <EditAddress value={value}></EditAddress> : ""
-                  )}>
+                  <IconButton onClick={() => {
+                    handleOpen();
+                  }}>
                     <Edit></Edit>
-                  </IconButton> */}
-                  <EditAddress value={value}></EditAddress>
+                  </IconButton>
                   <IconButton sx={{ml: 1}}>
                     <Delete></Delete>
                   </IconButton>
