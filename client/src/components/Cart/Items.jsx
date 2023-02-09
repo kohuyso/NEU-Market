@@ -5,17 +5,15 @@ import {
   decreaseQuantity,
   deleteItem,
   increaseQuantity,
+  toggleItemActive,
 } from "../../redux/reducers/cartSlice";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Items = ({ item, handleClick }) => {
-  const { author, id, price, img, quantity, rate, title } = item;
-
-  console.log(item);
+  const { author, id, price, img, quantity, rate, title, active } = item;
 
   const dispatch = useDispatch();
-
   const handleIncrease = () => {
     dispatch(increaseQuantity({ id }));
   };
@@ -31,7 +29,7 @@ const Items = ({ item, handleClick }) => {
   return (
     <div className="carts">
       <div className="check-box">
-        <Checkbox {...label} onClick={() => handleClick(item)} />
+        <Checkbox {...label} onClick={() => dispatch(toggleItemActive({ id }))} checked={active} />
       </div>
       <div className="image-box">
         <img src={img} alt="" />

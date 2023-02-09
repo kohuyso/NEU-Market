@@ -4,14 +4,15 @@ import { Avatar, Badge, Box, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ChatIcon from "@mui/icons-material/Chat";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { useSelector } from "react-redux";
+import { selectCart } from "../../redux/reducers/cartSlice";
 
 const Header = () => {
   const { currentUser } = useAuth();
+  const list = useSelector(selectCart);
   const history = useHistory();
 
   return (
@@ -50,8 +51,10 @@ const Header = () => {
             <Badge badgeContent={4} color="error">
               <ChatIcon color="primary" />
             </Badge>
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartIcon color="primary" />
+            <Badge badgeContent={list.length} color="error">
+              <Link to="/cart">
+                <ShoppingCartIcon color="primary" />
+              </Link>
             </Badge>
 
             <Avatar

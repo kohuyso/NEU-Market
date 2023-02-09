@@ -8,14 +8,24 @@ import Button from "@mui/material/Button";
 import { fontSize } from "@mui/system";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { useSelector } from "react-redux";
-import { selectCart, selectTotalCart } from "../../redux/reducers/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { calcTotal, selectCart, selectTotalCart, setAllActive, setAllNotActive } from "../../redux/reducers/cartSlice";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Cart = ({ cart, setCart, handleChange }) => {
   const list = useSelector(selectCart);
   const total = useSelector(selectTotalCart);
+
+  const [active, setActive] = React.useState(false);
+  const dispatch = useDispatch();
+
+  React.useEffect(()=> {
+    dispatch(calcTotal())
+  },[list])
+
+
+ 
   return (
     <div className="cart">
       <Header />
@@ -43,7 +53,15 @@ const Cart = ({ cart, setCart, handleChange }) => {
       </div>
       <div className="cart-footer">
         <div className="cart-btn">
-          <Checkbox {...label} />
+          <Checkbox {...label} value={active}  onChange={(value)=> {
+            if (value.target.value === 'false') {
+              dispatch(setAllActive());
+            } else {
+              dispatch(setAllNotActive());
+            }
+
+            setActive(!active)
+          }}/>
           <p>Chọn tất cả</p>
           <button>Xóa</button>
         </div>

@@ -24,6 +24,7 @@ const Item = ({ id, img, title, author, rate, price }) => {
         rate,
         price,
         quantity: 1,
+        active: false
       })
     );
     toast.success("Thêm sản phẩm thành công!");
