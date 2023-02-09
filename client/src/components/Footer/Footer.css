@@ -5,6 +5,7 @@
   flex-direction: column;
   color: white;
   gap: 10px;
+  width: 100%;
 }
 
 .footer_top {

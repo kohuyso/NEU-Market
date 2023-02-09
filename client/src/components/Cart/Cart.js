@@ -1,9 +1,67 @@
-import React from 'react'
+import React from "react";
+import "./Cart.css";
+import SearchIcon from "@mui/icons-material/Search";
+import Carts from "./Carts";
+import Checkbox from "@mui/material/Checkbox";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { fontSize } from "@mui/system";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { useSelector } from "react-redux";
+import { selectCart, selectTotalCart } from "../../redux/reducers/cartSlice";
 
-export default function Cart() {
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+const Cart = ({ cart, setCart, handleChange }) => {
+  const list = useSelector(selectCart);
+  const total = useSelector(selectTotalCart);
   return (
-    <div>
-      Cart
+    <div className="cart">
+      <Header />
+
+      <div className="cart-container">
+        <div className="cart-title">
+          <div>
+            <p>Sản phẩm</p>
+          </div>
+          <div>
+            <p>Đơn giá</p>
+          </div>
+          <div>
+            <p>Số lượng</p>
+          </div>
+          <div>
+            <p>Thành tiền</p>
+          </div>
+          <div>
+            <p>Thao tác</p>
+          </div>
+        </div>
+        {/* Carts */}
+        <Carts list={list} />
+      </div>
+      <div className="cart-footer">
+        <div className="cart-btn">
+          <Checkbox {...label} />
+          <p>Chọn tất cả</p>
+          <button>Xóa</button>
+        </div>
+        <div className="cart-total">
+          <div>
+            <p>Tổng thanh toán</p>
+            <p>{total} đ</p>
+          </div>
+          {/* <Stack spacing={2} direction="row">
+            <Button className="btn-buy" variant="outlined" size="medium">Mua hàng</Button>
+          </Stack> */}
+          <button>Mua hàng</button>
+        </div>
+      </div>
+
+      <Footer />
     </div>
-  )
-}
+  );
+};
+
+export default Cart;

@@ -5,6 +5,7 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import "./Item.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducers/cartSlice";
+import { toast, ToastContainer } from "react-toastify";
 
 const Item = ({ id, img, title, author, rate, price }) => {
   const rateStarFilled = Array.from({ length: rate });
@@ -19,11 +20,13 @@ const Item = ({ id, img, title, author, rate, price }) => {
         id,
         title,
         author,
+        img,
         rate,
         price,
         quantity: 1,
       })
     );
+    toast.success("Thêm sản phẩm thành công!");
   };
 
   return (
@@ -49,6 +52,7 @@ const Item = ({ id, img, title, author, rate, price }) => {
           + Thêm vào giỏ hàng
         </Button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
