@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
