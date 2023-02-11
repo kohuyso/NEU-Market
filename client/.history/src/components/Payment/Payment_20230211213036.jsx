@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import "./Payment.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LocationOn from '@mui/icons-material/LocationOn';
 import Inventory from '@mui/icons-material/Inventory';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { Button } from '@mui/material';
-import { selectCart, deleteItem } from '../../redux/reducers/cartSlice';
-import { Link } from 'react-router-dom';
+import { selectCart } from '../../redux/reducers/cartSlice';
 
 function calcTotal(list) {
 	let sum = 0;
@@ -22,7 +21,6 @@ export default function Payment() {
 	const { user } = useSelector((state) => state.user);
 	const list = useSelector(selectCart).filter((item) => item.active === true);
 	const [show, setShow] = useState(false);
-	const dispatch = useDispatch();
 
   return (
     <div className='payment-container'> 
@@ -42,7 +40,7 @@ export default function Payment() {
 							<div className="address">{user.address[0].ward}, {user.address[0].district}, {user.address[0].city}</div>
 						</div>
 						<div className="right-content-item">
-							<Button variant='contained' style={{ textTransform: "none", fontSize: 15 }}>Thay đổi</Button>
+							<Button variant='outlined' style={{ textTransform: "none", fontSize: 15 }}>Thay đổi</Button>
 						</div>
 					</div>
 				</div>
@@ -105,27 +103,8 @@ export default function Payment() {
 					</div>
 
 					{
-						show ? <div className='bill'>
-							<div className='fragment'>
-								<div className='paragraph'>Tổng tiền hàng:</div>
-								<div className='price'>{calcTotal(list)}đ</div> 
-							</div>
-							<div className='fragment'>
-								<div className='paragraph'>Phí vận chuyển:</div>
-								<div className='price'>22.000đ</div> 
-							</div>
-							<div className='fragment'>
-								<div className='paragraph'>Tổng thanh toán:</div>
-								<div className='final-price'>{calcTotal(list) + 22000}đ</div> 
-							</div>
-							<Button sx={{mt: 2}} onClick={() => {
-								list.forEach((item) => {
-									dispatch(deleteItem(item))
-								})
-							}} variant='contained' style={{ textTransform: "none", fontSize: 15 }}><Link to="/">Đặt hàng</Link></Button>
-						</div> : ""
+						show? <div className='bill'></div> : ""
 					}
-					
 				</div>
 			</div>
 			<Footer/>

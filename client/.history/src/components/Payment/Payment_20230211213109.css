@@ -111,23 +111,5 @@
 .payment-container .payment-wrapper .payment-method .bill {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment {
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 30px;
-    margin-bottom: 5px;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment .price {
-    font-size: 16px;
-    font-weight: 700;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment .final-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: red;
+    justify-content: flex-end;
 }

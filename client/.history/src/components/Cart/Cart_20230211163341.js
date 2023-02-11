@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import { fontSize } from "@mui/system";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { calcTotal, selectCart, selectTotalCart, setAllActive, setAllNotActive } from "../../redux/reducers/cartSlice";
 
@@ -74,11 +73,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           {/* <Stack spacing={2} direction="row">
             <Button className="btn-buy" variant="outlined" size="medium">Mua hàng</Button>
           </Stack> */}
-          <button>
-            {
-              total !== 0? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
-            }
-          </button>
+          <button>Mua hàng</button>
         </div>
       </div>
 

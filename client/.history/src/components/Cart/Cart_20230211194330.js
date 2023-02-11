@@ -74,11 +74,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           {/* <Stack spacing={2} direction="row">
             <Button className="btn-buy" variant="outlined" size="medium">Mua hàng</Button>
           </Stack> */}
-          <button>
-            {
-              total !== 0? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
-            }
-          </button>
+          <button><Link to="/payment">Mua hàng</Link></button>
         </div>
       </div>
 

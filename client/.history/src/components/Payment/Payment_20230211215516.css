@@ -119,7 +119,6 @@
     width: 30%;
     justify-content: space-between;
     align-items: flex-end;
-    height: 30px;
     margin-bottom: 5px;
 }
 .payment-container .payment-wrapper .payment-method .bill .fragment .price {

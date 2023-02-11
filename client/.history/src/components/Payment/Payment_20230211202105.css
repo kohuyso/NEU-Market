@@ -76,58 +76,5 @@
     font-weight: 600;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
     align-items: center;
-}
-.payment-container .payment-wrapper .payment-products .cart-container {
-    width: 100%;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.payment-container .payment-wrapper .payment-method {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    margin-top: 20px;
-    border: 1px solid #c5c5c5;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 10px;
-}
-.payment-container .payment-wrapper .payment-method .payment-method-title {
-    font-size: 20px;
-    color: #000;
-    font-weight: 600;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    align-items: center;
-}
-.payment-container .payment-wrapper .payment-method .payment-methods {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-}
-.payment-container .payment-wrapper .payment-method .bill {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment {
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 30px;
-    margin-bottom: 5px;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment .price {
-    font-size: 16px;
-    font-weight: 700;
-}
-.payment-container .payment-wrapper .payment-method .bill .fragment .final-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: red;
 }

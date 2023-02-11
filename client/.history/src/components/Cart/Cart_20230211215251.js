@@ -76,7 +76,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           </Stack> */}
           <button>
             {
-              total !== 0? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
+            total !== 0? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
             }
           </button>
         </div>

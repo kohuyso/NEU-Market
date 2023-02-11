@@ -9,6 +9,7 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import { Button } from '@mui/material';
 import { selectCart, deleteItem } from '../../redux/reducers/cartSlice';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 function calcTotal(list) {
 	let sum = 0;
@@ -121,6 +122,16 @@ export default function Payment() {
 							<Button sx={{mt: 2}} onClick={() => {
 								list.forEach((item) => {
 									dispatch(deleteItem(item))
+									toast.success('Thanh toán thành công', {
+										position: "top-right",
+										autoClose: 5000,
+										hideProgressBar: false,
+										closeOnClick: true,
+										pauseOnHover: true,
+										draggable: true,
+										progress: undefined,
+										theme: "light",
+									});
 								})
 							}} variant='contained' style={{ textTransform: "none", fontSize: 15 }}><Link to="/">Đặt hàng</Link></Button>
 						</div> : ""

@@ -1,0 +1,59 @@
+.payment-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.payment-container .payment-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 70px;
+}
+.payment-container .payment-wrapper .address-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #c5c5c5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+}
+.payment-container .payment-wrapper .address-item .content-item {
+    padding: 20px 0px;
+    border-bottom: 1px solid #c5c5c5;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.payment-container .payment-wrapper .address-item .content-item .right-content-item {
+    display: flex;
+    flex-direction: row;
+}
+.payment-container .payment-wrapper .address-item .content-item .left-content-item {
+    display: flex;
+    flex-direction: column;
+}
+.payment-container .payment-wrapper .address-item .content-item .item-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.payment-container .payment-wrapper .address-item .content-item .item-group .name {
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 8px;
+    border-right: 1px solid #757575;
+}
+.payment-container .payment-wrapper .address-item .content-item .item-group .phoneNumber {
+    font-size: 14px;
+    padding-left: 8px;
+    color: #0000008A;
+}
+.payment-container .payment-wrapper .address-item .content-item .address {
+    font-size: 14px;
+    color: #0000008A;
+}
+.payment-container .payment-wrapper .address-item .address-content-title {
+    font-size: 20px;
+    color: #000;
+    font-weight: 800;
+}

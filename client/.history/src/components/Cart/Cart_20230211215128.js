@@ -14,6 +14,13 @@ import { calcTotal, selectCart, selectTotalCart, setAllActive, setAllNotActive }
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+function checkActive(list) {
+  list.forEach((item) => {
+    if(item.active === true) return true;
+  })
+  return false;
+}
+
 const Cart = ({ cart, setCart, handleChange }) => {
   const list = useSelector(selectCart);
   const total = useSelector(selectTotalCart);
@@ -74,11 +81,9 @@ const Cart = ({ cart, setCart, handleChange }) => {
           {/* <Stack spacing={2} direction="row">
             <Button className="btn-buy" variant="outlined" size="medium">Mua hàng</Button>
           </Stack> */}
-          <button>
-            {
-              total !== 0? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
-            }
-          </button>
+          <button>{
+            checkActive(list) ? <Link to="/payment">Mua hàng</Link> : "Mua Hàng"
+          }</button>
         </div>
       </div>
 

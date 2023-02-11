@@ -1,0 +1,20 @@
+.payment-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.payment-container .payment-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 70px;
+}
+.payment-container .payment-wrapper .address-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #c5c5c5;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px; */
+}
