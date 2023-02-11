@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import dayjs from "dayjs";
 import { AddCircleOutline } from "@mui/icons-material";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/reducers/productSlice";
 import { validateName } from "../../contexts/helper";
 import FieldInput from "../FieldInput/FieldInput";
@@ -20,51 +20,48 @@ import { PhotoCamera } from "@mui/icons-material";
 import "./AddProduct.css";
 import CustomImageList from "../customImageList/CustomImageList";
 
-export default function AddProduct() {
+export default function AddProduct(props) {
   const options = {
     type: ["Quần Áo", "Giáo Trình", "Đồ dùng học tập"],
     gender: ["Nam", "Nữ", "Mọi người"],
     size: ["S", "M", "L", "XL", "2XL", 34, 35, 36, 37, 38, 39, 40, 41, 42, 43],
   };
 
-  const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const [newProduct, setNewProduct] = React.useState({ ...product });
-
   const onChangeFieldName = (event, index) => {
-    setNewProduct({
-      ...newProduct,
+    props.setNewProduct({
+      ...props.newProduct,
       fields: [
-        ...newProduct.fields.slice(0, index),
+        ...props.newProduct.fields.slice(0, index),
         {
-          ...newProduct.fields[index],
+          ...props.newProduct.fields[index],
           name: event.target.value,
         },
-        ...newProduct.fields.slice(index + 1),
+        ...props.newProduct.fields.slice(index + 1),
       ],
     });
   };
 
   const onChangeFieldValue = (event, index) => {
-    setNewProduct({
-      ...newProduct,
+    props.setNewProduct({
+      ...props.newProduct,
       fields: [
-        ...newProduct.fields.slice(0, index),
+        ...props.newProduct.fields.slice(0, index),
         {
-          ...newProduct.fields[index],
+          ...props.newProduct.fields[index],
           value: event.target.value,
         },
-        ...newProduct.fields.slice(index + 1),
+        ...props.newProduct.fields.slice(index + 1),
       ],
     });
   };
 
   const onAddField = () => {
-    setNewProduct({
-      ...newProduct,
+    props.setNewProduct({
+      ...props.newProduct,
       fields: [
-        ...newProduct.fields,
+        ...props.newProduct.fields,
         {
           name: "",
           value: "",
@@ -73,8 +70,18 @@ export default function AddProduct() {
     });
   };
 
+  const handleDelete = (index) => {
+    props.setNewProduct({
+      ...props.newProduct,
+      fields: [
+        ...props.newProduct.fields.slice(0, index),
+        ...props.newProduct.fields.slice(index + 1)
+      ],
+    })
+  }
+
   const onAddProduct = () => {
-    dispatch(addProduct(newProduct));
+    dispatch(addProduct(props.newProduct));
   }
 
   const [value, setValue] = React.useState(0);
@@ -84,40 +91,40 @@ export default function AddProduct() {
       <div className="add-product-left">
         <div className="add-product-name">
           <TextField
-            error={!validateName(newProduct.name) ? true : false}
+            error={!validateName(props.newProduct.name) ? true : false}
             id="outlined-basic"
-            label="Name"
+            label="Tên sản phẩm"
             variant="outlined"
             onChange={(event) => {
-              setNewProduct({
-                ...newProduct,
+              props.setNewProduct({
+                ...props.newProduct,
                 name: event.target.value,
               });
             }}
             sx={{ width: 1 }}
             helperText={
-              !validateName(newProduct.name) ? "Only letters and spaces" : ""
+              !validateName(props.newProduct.name) ? "Only letters and spaces" : ""
             }
           />
         </div>
         <div className="add-product-group">
           <div className="add-product-type">
             <FormControl sx={{ width: 1 }}>
-              <InputLabel id="demo-simple-select-label">Type</InputLabel>
+              <InputLabel id="demo-simple-select-label">Phân loại</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={newProduct.type}
-                label="Type"
+                value={props.newProduct.type}
+                label="Phân loại"
                 onChange={(event) => {
-                  setNewProduct({
-                    ...newProduct,
+                  props.setNewProduct({
+                    ...props.newProduct,
                     type: event.target.value,
                   });
                 }}
               >
-                {options.type.map((option) => (
-                  <MenuItem value={option}>{option}</MenuItem>
+                {options.type.map((option, index) => (
+                  <MenuItem key={index} value={option}>{option}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -128,17 +135,17 @@ export default function AddProduct() {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={newProduct.gender}
-                label="Gender"
+                value={props.newProduct.gender}
+                label="Giới tính"
                 onChange={(event) => {
-                  setNewProduct({
-                    ...newProduct,
+                  props.setNewProduct({
+                    ...props.newProduct,
                     gender: event.target.value,
                   });
                 }}
               >
-                {options.gender.map((option) => (
-                  <MenuItem value={option}>{option}</MenuItem>
+                {options.gender.map((option, index) => (
+                  <MenuItem key={index} value={option}>{option}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -152,26 +159,41 @@ export default function AddProduct() {
             onClick={() => onAddField()}
             sx={{ mb: 4 }}
           >
-            Add Field
+            Thêm trường
           </Button>
 
-          {newProduct.fields.map((field, index) => (
+          {props.newProduct.fields.map((field, index) => (
             <FieldInput
               index={index}
+              handleDelete={() => handleDelete(index)}
               onChangeFieldName={onChangeFieldName}
               onChangeFieldValue={onChangeFieldValue}
             />
           ))}
         </div>
+        <div className="add-product-price">
+          <TextField 
+            label="Giá"
+            variant="outlined"
+            sx={{mb: 3, width: 1}}
+            onChange={(event) => {
+              props.setNewProduct({
+                ...props.newProduct,
+                price: event.target.value,
+              });
+            }}
+          ></TextField>
+        </div>
         <div className="add-product-description">
-          <label for="description">Description</label>
+          <label htmlFor="description">Mô tả</label>
           <textarea
             id="description"
-            placeholder="Describe your product..."
+            style={{resize: 'none'}}
+            placeholder="Mô tả sản phẩm của bạn..."
             rows={6}
             onChange={(event) => {
-              setNewProduct({
-                ...newProduct,
+              props.setNewProduct({
+                ...props.newProduct,
                 description: event.target.value,
               });
             }}
@@ -181,10 +203,23 @@ export default function AddProduct() {
 
       <div className="add-product-right">
         <div className="add-product-right-content">
+          <div className="add-product-quantity">
+            <TextField 
+              variant="outlined"
+              label="Số lượng"
+              sx={{ width: 1, mb: 2 }}
+              onChange={(event) => {
+                props.setNewProduct({
+                  ...props.newProduct,
+                  quantity: event.target.value,
+                });
+              }}
+            ></TextField>
+          </div>
           <div className="add-product-imgs">
             <div className="add-product-imgs-title">
               <div>
-                <b>Add your product images</b>
+                <b>Thêm ảnh cho sản phẩm của bạn</b>
               </div>
               <IconButton
                 color="primary"
@@ -196,40 +231,40 @@ export default function AddProduct() {
                 <PhotoCamera />
               </IconButton>
             </div>
-            {newProduct.imgs.length > 0 && (
+            {props.newProduct.imgs.length > 0 && (
               <div className="add-product-img-list">
-                <CustomImageList />
+                <CustomImageList newProduct={props.newProduct}/>
               </div>
             )}
           </div>
           <div className="add-product-group">
             <div className="add-product-size">
               <TextField
-                value={newProduct.size}
+                value={props.newProduct.size}
                 select
-                label="Size (Optional)"
+                label="Kích cỡ (Không bắt buộc)"
                 sx={{ width: 1 }}
                 onChange={(event) => {
-                  setNewProduct({
-                    ...newProduct,
+                  props.setNewProduct({
+                    ...props.newProduct,
                     size: event.target.value,
                   });
                 }}
               >
-                {options.size.map((option) => (
-                  <MenuItem value={option}>{option}</MenuItem>
+                {options.size.map((option, index) => (
+                  <MenuItem key={index} value={option}>{option}</MenuItem>
                 ))}
               </TextField>
             </div>
             <div className="add-product-expiDate">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                  label="Expiration Date (Optional)"
+                  label="Ngày hết hạn (Không bắt buộc)"
                   value={value}
                   onChange={(newValue) => {
                     setValue(newValue);
-                    setNewProduct({
-                      ...newProduct,
+                    props.setNewProduct({
+                      ...props.newProduct,
                       expirationDate: dayjs(newValue).format("DD/MM/YYYY"),
                     });
                   }}

@@ -1,0 +1,17 @@
+.reviewButton {
+  padding: 0.5rem 15px;
+  border: 1px solid #c4cdd5;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.reviewButton:hover {
+  background-color: #dfe0e2;
+}
+
+.activeRV {
+  display: block;
+}
+.unActiveRV {
+  display: none;
+}

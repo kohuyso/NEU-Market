@@ -12,6 +12,9 @@ import EditProduct from "./components/editProduct/EditProduct";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Search from "./components/Search/Search";
+import SellProduct from "./components/SellProduct/SellProduct";
+import Shop from "./components/Shop/Shop";
+import Payment from "./components/Payment/Payment";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
             <Route path="/cart" component={Cart} />
             <Route path="/profile" component={Profile} />
             <Route path="/signup-details" component={SignupDetails} />
+            <Route path="/sell" component={SellProduct} />
+            <Route path="/shop" component={Shop} />
+            <Route path="/payment" component={Payment} />
           </Switch>
         </Provider>
       </AuthProvider>

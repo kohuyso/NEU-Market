@@ -1,0 +1,29 @@
+.mini-Product {
+  height: 4.5rem;
+  width: 4.2rem;
+  transform: scale(1);
+  transition: all 0.3s linear;
+  user-select: none;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #808080;
+  transform: center left;
+  position: relative;
+  opacity: 0.8;
+}
+.mini-Product:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  opacity: 1;
+}
+
+.shop-image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.banner-image {
+  width: 100%;
+  height: 250px;
+}

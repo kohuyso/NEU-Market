@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
 }
 .edit-product .edit-product-title .title-edit {
     width: 98%;

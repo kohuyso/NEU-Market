@@ -1,0 +1,16 @@
+.wrapper-More-Product {
+  width: 29%;
+  background-color: #a3c5e5;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+  .wrapper-More-Product {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .wrapper-More-Product {
+    width: 100%;
+  }
+}

@@ -9,6 +9,7 @@ import MyDetails from "../myDetails/MyDetails";
 import MyAddress from "../myAddress/MyAddress";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Carts from "../Cart/Carts";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -93,7 +94,7 @@ export default function Profile() {
             <MyAddress/>
           </TabPanel>
           <TabPanel value={value} index={"3"}>
-            My Orders
+            <Carts></Carts>
           </TabPanel>
           <TabPanel value={value} index={"4"}>
             Account Settings

@@ -1,0 +1,10 @@
+.Product-wrapper {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.Body-gr {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}

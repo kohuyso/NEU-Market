@@ -6,7 +6,10 @@ import { addAddress  } from "../../redux/reducers/userSlice";
 import axios from "axios";
 import CountryTextField from "../countryTextField/CountryTextField";
 import { Delete } from "@mui/icons-material";
-import EditAddress from "../../editAddress/EditAddress";
+import EditAddress from "../editAddress/EditAddress";
+
+// uid/products/product-product-id/
+// uid/avatar/
 
 const style = {
   position: 'absolute',
@@ -83,6 +86,10 @@ export default function MyAddress() {
   React.useEffect(() => {
     if (district) fetchWards(city, district);
   }, [district, city]);
+
+  React.useEffect(() => {
+    
+  }, [newAddress]);
 
   const dispatch = useDispatch();
 
@@ -215,12 +222,7 @@ export default function MyAddress() {
                   <div className="address">{value.ward}, {value.district}, {value.city}</div>
                 </div>
                 <div className="right-content-item">
-                  {/* <IconButton onClick={() => (
-                    open ? <EditAddress value={value}></EditAddress> : ""
-                  )}>
-                    <Edit></Edit>
-                  </IconButton> */}
-                  <EditAddress value={value}></EditAddress>
+                  <EditAddress value={value} index={index}></EditAddress>
                   <IconButton sx={{ml: 1}}>
                     <Delete></Delete>
                   </IconButton>

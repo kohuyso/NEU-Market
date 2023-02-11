@@ -10,15 +10,13 @@ import {
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import React, { useState } from "react";
 import "./CustomImageList.css";
-import { useSelector } from "react-redux";
 import { cropImageFromUrl } from "../../contexts/helper";
 import { useTheme } from "@mui/material/styles";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
-export default function CustomImageList() {
-  const product = useSelector((state) => state.product);
-  const { imgs } = product;
+export default function CustomImageList(props) {
+  const {imgs} = props.newProduct;
 
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
   const theme = useTheme();

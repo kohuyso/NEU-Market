@@ -1,0 +1,28 @@
+.Body-wrapper {
+  width: 1000px;
+}
+
+.Body-last {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2.5rem;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+  .Body-wrapper {
+    width: 100%;
+  }
+  .Body-last {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .Body-wrapper {
+    width: 100%;
+  }
+  .Body-last {
+    flex-direction: column;
+  }
+}

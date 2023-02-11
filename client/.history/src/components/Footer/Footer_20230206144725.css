@@ -1,0 +1,47 @@
+.footer {
+  padding: 5% 5% 2% 5%;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.footer_top {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.footer_place {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer_place h3 {
+  font-size: 20px;
+}
+
+.footer_contact {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer_contact input {
+  color: white;
+}
+
+.footer_contact button {
+  border-color: white;
+  color: white;
+}
+
+.footer_copyright {
+  text-align: center;
+}
